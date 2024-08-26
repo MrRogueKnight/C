@@ -15,6 +15,6 @@ int main() {
 
     // Display the result
     printf("%d + %d = %d\n", number1, number2, sum);
-
+    getch();
     return 0;
 }

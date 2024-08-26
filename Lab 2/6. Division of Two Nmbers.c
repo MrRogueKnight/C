@@ -34,6 +34,6 @@ int main() {
     // Calculate mixed division (int/double)
     mixedResult = num1 / num4;
     printf("Mixed division (int/double) result: %.2lf\n", mixedResult);
-
+    getch();
     return 0;
 }

@@ -28,6 +28,6 @@ int main() {
     printf("Roll Number: %s\n", s.rollNumber); // Print roll number
     printf("Branch: %s\n", s.branch); // Print branch
     printf("Marks: %.2f\n", s.marks); // Print marks with 2 decimal places
-
+    getch();
     return 0; // Exit program
 }

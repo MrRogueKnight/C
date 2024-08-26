@@ -16,6 +16,6 @@ int main() {
     printf("Value at index 0: %d\n", myArray[0]);
     printf("Value at index 3: %d\n", myArray[3]);
     printf("Value at index 4: %d\n", myArray[4]);
-
+    getch();
     return 0;
 }

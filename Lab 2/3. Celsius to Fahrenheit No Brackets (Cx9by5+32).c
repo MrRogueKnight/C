@@ -16,6 +16,6 @@ int main() {
 
     // Display temperature in Fahrenheit
     printf("Temperature in Fahrenheit: %.2f\n", fahrenheit);
-
+    getch();
     return 0;
 }

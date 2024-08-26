@@ -22,7 +22,7 @@ int main() {
     printf("Size of long long: %zu bytes\n", sizeof(longLongType));
     printf("Size of short: %zu bytes\n", sizeof(shortType));
     printf("Size of long double: %zu bytes\n", sizeof(longDoubleType));
-
+    getch();
     return 0;
 }
 

@@ -21,6 +21,6 @@ int main() {
 
     printf("\nDouble results:\n");
     printf("1. %.2lf\n2. %.2lf\n", doubleResult1, doubleResult2);
-
+    getch();
     return 0; // Exit program
 }

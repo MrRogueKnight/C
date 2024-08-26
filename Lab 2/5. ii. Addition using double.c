@@ -16,6 +16,6 @@ int main() {
 
     // Display the result
     printf("Sum: %.2lf\n", sum);
-
+    getch();
     return 0;
 }
