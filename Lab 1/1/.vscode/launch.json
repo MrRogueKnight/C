@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "d:/RGIPT/0. CSE - CS101 - (CS101)(CS101-LabA)(CS101-LabB)/0. Assignments Lab A (My Lab)/1",
+      "program": "d:/RGIPT/0. CSE - CS101 - (CS101)(CS101-LabA)(CS101-LabB)/0. Assignments Lab A (My Lab)/1/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
