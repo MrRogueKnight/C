@@ -20,8 +20,8 @@ int main() {
     printf("Sum is %d\n", sum);
     getch();
     return 0;
-
 }
+
 /*
 Add a getch(); or getchar(); statement: At the end of your program, add a getch() or getchar() statement.
 This will pause the program and wait for you to press a key before closing the console window
