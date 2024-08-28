@@ -6,6 +6,16 @@ printf("Inside if\n");
 printf("x: %d, y: %d\n", x, y);
 return 0;
 }
+
+/*
+#include <stdio.h>
+int main() {
+    int x = 5, y = 0;
+    if (x && y++) printf("Inside if\n");
+    printf("x: %d, y: %d\n", x, y); // Output: x: 5, y: 1
+    return 0;
+}
+*/
 /*
 Here's a detailed step-by-step solution:
 
