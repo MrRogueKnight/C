@@ -5,7 +5,6 @@ int main() {
  printf("x: %d, y: %d\n", x, y);
  return 0;
 }
-
 /*
 Here's a detailed step-by-step solution:
 

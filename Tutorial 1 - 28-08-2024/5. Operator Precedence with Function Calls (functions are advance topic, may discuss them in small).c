@@ -1,4 +1,24 @@
 #include <stdio.h>
+
+int foo() {
+    printf("Foo called\n");
+    return 5;
+}
+
+int bar() {
+    printf("Bar called\n");
+    return 10;
+}
+
+int main() {
+    int result = foo() + bar() * 2;
+    printf("Result: %d\n", result);
+    return 0;
+}
+
+
+/*#include <stdio.h>
+
 int foo() {
  printf("Foo called\n");
  return 5;
@@ -6,13 +26,14 @@ int foo() {
 int bar() {
  printf("Bar called\n");
  return 10;
-Output :
 }
 int main() {
  int result = foo() + bar() * 2;
  printf("Result: %d\n", result);
  return 0;
-}
+}*/
+
+
 /*
 Here's a detailed step-by-step solution:
 
