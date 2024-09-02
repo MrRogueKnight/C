@@ -6,7 +6,6 @@ Input:   (Set1: n1=3, n2=3, n3=4) 	(Set2: n1=4, n2=4, n3=4) 	(Set3: n1=4, n2 =5,
 Output:  (Set1: Isosceles) 		(Set2: Equilateral)		(Set3: Scalene)
 **/
 #include<stdio.h>
-
 int main() {
     // Declare variables to store the lengths of the three sides of the triangle
     int n1, n2, n3;
