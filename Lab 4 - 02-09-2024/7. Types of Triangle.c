@@ -29,3 +29,8 @@ int main() {
     getch();
     return 0;
 }
+/**
+Output:
+Enter the lengths of the three sides of the triangle: 56 12 15
+The triangle is scalene.
+*/

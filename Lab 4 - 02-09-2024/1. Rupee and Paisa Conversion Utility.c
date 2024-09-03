@@ -21,3 +21,9 @@ printf("%d Paisa = %d Rupees and %d Paisa",Amount, Rupees, Paisa);   // Output
 getch();
 return 0;
 }
+
+/**
+Output:
+Enter the Amount: 16546
+16546 Paisa = 165 Rupees and 46 Paisa
+*/

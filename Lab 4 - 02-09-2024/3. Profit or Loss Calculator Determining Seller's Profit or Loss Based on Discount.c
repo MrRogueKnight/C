@@ -43,3 +43,11 @@ int main() {
     getch();
     return 0;
 }
+
+/**
+Output:
+Enter the buying price: 500
+Enter the marker price: 650
+Enter the discount: 13
+Seller made a profit of: 13.10%
+*/

@@ -26,3 +26,8 @@ int main() {
     getch();
     return 0;
 }
+/**
+Output:
+Enter the time: 5466
+5466 Seconds = 1 Hours, 31 Minutes, and 6 Seconds
+*/

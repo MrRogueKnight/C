@@ -54,3 +54,16 @@ printf("num2 = %d\n", num2);
 getch();
 return 0;
 }
+/**
+Output:
+Enter num1: 535
+Enter num2: 123
+
+Before Swapping:
+num1 = 535
+num2 = 123
+
+After Swapping:
+num1 = 123
+num2 = 535
+*/

@@ -32,3 +32,8 @@ int main(){
 getch();
 return 0;
 }
+/**
+Output :
+Enter three numbers: 46 59 64
+The largest number is 64
+*/
