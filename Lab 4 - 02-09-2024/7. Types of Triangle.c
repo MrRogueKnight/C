@@ -26,6 +26,6 @@ int main() {
     else {
         printf("The triangle is scalene.");
     }
-
+    getch();
     return 0;
 }
