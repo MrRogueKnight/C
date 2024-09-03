@@ -23,6 +23,6 @@ int main() {
     Seconds =(Time -(3600 * Hours)-(Minutes * 60));   // or Time % 60;
 
     printf("%.0f Seconds = %d Hours, %d Minutes, and %d Seconds\n", Time, Hours, Minutes, Seconds);
-
+    getch();
     return 0;
 }
