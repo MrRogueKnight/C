@@ -11,6 +11,7 @@ Lab:
 + Assignment PDFs provided, along with solutions
 + Recommended to solve questions on your own before referring to solutions
 + Use solutions for help only when needed
+
 Tutorials:
 + Tricky questions section, where you'll learn to solve challenging problems
 + Practice and improve your problem-solving skills
