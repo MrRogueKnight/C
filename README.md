@@ -1,26 +1,30 @@
 # C
-✪ Mr Rogue Knight | Prashant 
 
 CS101: Comprehensive C Programming Course
 
-Perfect for beginners! Learn C from scratch
+Embrace the world of C programming with our comprehensive course, perfectly designed for beginners! Learn C from scratch and become proficient in no time.
 
 Course Highlights:
 
 Lab:
-+ Basic part of the learning course, covering everything from basic to advanced levels
-+ Assignment PDFs provided, along with solutions
-+ Recommended to solve questions on your own before referring to solutions
-+ Use solutions for help only when needed
+
+- Basic part of the learning course, covering everything from basic to advanced levels
+- Assignment PDFs provided, along with solutions
+- Recommended to solve questions on your own before referring to solutions
+- Use solutions for help only when needed
 
 Tutorials:
-+ Tricky questions section, where you'll learn to solve challenging problems
-+ Practice and improve your problem-solving skills
+
+- Tricky questions section, where you'll learn to solve challenging problems
+- Practice and improve your problem-solving skills
+
 Assignments:
-+ Practice exercises to reinforce your learning
+
+- Practice exercises to reinforce your learning
 
 Quizzes:
-+ Assess your knowledge and understanding
+
+- Assess your knowledge and understanding
 
 Learning Path:
 
@@ -33,6 +37,12 @@ Additional Tips:
 
 - For any topic, search "(Topic) GFG" for additional help and resources
 - Practice solving questions on your own to improve your coding skills
+- Dry run the program before compiling:
+    - Read the code line by line
+    - Understand the logic and flow
+    - Predict the output
+    - Compile and run the program
+    - Verify your understanding
 
 GitHub Repository:
 
@@ -40,3 +50,5 @@ GitHub Repository:
 - Start your C programming journey today!
 
 Note: GFG stands for GeeksforGeeks, a popular website for programming concepts, examples, and practice problems.
+
+✪ Mr Rogue Knight | Prashant 
