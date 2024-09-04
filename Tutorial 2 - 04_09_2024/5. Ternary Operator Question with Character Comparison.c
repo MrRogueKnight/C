@@ -6,3 +6,6 @@ char result = (grade == 'A') ? 'P' : ((grade == 'B') ? 'Q' : 'R');
 printf("%c", result);
 return 0;
 }
+/**
+Output: Q
+*/

@@ -13,3 +13,8 @@ else
 printf("D");
 return 0;
 }
+
+/**
+Output:
+B
+*/

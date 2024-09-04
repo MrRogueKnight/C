@@ -6,3 +6,6 @@ char result = (x > 0) ? 'A' : 65;
 printf("%c", result);
 return 0;
 }
+/**
+Output: A
+*/

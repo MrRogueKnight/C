@@ -20,3 +20,6 @@ printf("F");
 }
 return 0;
 }
+/**
+Output: B
+*/

@@ -12,3 +12,8 @@ printf("C");
 }
 return 0;
 }
+
+/**
+Output:
+A
+*/

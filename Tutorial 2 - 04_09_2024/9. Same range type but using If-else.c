@@ -11,3 +11,6 @@ printf("Fail");
 }
 return 0;
 }
+/**
+Output: Fail
+*/

@@ -1,16 +1,24 @@
 //Q 14. Switch Case:
 //What will be the output of the following code?
-char grade = 'B';
-switch (grade) {
+#include<stdio.h>
+int main(){
+    char grade = 'B';
+    switch (grade) {
 case 'A':
-printf("Excellent");
+    printf("Excellent");
 break;
 case 'B':
-printf("Good");
+    printf("Good");
 break;
 case 'C':
-printf("Average");
+    printf("Average");
 break;
 default:
-printf("Invalid grade");
+    printf("Invalid grade");
 }
+    return 0;
+}
+
+/**
+Output: Good
+*/
