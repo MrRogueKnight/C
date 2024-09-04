@@ -1,4 +1,5 @@
-# C - ✪ Mr Rogue Knight | Prashant 
+# C
+✪ Mr Rogue Knight | Prashant 
 
 CS101: Comprehensive C Programming Course
 
@@ -17,7 +18,7 @@ Tutorials:
 + Practice and improve your problem-solving skills
 Assignments:
 + Practice exercises to reinforce your learning
-+ PDFs provided in the Lab folder
+
 Quizzes:
 + Assess your knowledge and understanding
 
