@@ -10,24 +10,18 @@ Embrace the world of C programming with our comprehensive course, perfectly desi
 
 Course Highlights:
 
-Lab:
+Lab / Assignments / Task:
 
 - Basic part of the learning course, covering everything from basic to advanced levels
 - Assignment PDFs provided, along with solutions
 - Recommended to solve questions on your own before referring to solutions
 - Use solutions for help only when needed
+- Practice exercises to reinforce your learning
 
-Tutorials:
+Tutorials / Quizzes:
 
 - Tricky questions section, where you'll learn to solve challenging problems
 - Practice and improve your problem-solving skills
-
-Assignments:
-
-- Practice exercises to reinforce your learning
-
-Quizzes:
-
 - Assess your knowledge and understanding
 
 Learning Path:
