@@ -64,9 +64,7 @@ do
         default:
             printf("Invalid choice. Exiting...\n");
            // return 1;
-    }
-
-        printf("\nDo you want to continue? (y/n): ");
+    }   printf("\nDo you want to continue? (y/n): ");
         scanf(" %c", &cont);
 
         while (cont != 'y' && cont != 'Y' && cont != 'n' && cont != 'N') {
