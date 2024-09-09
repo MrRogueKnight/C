@@ -1,6 +1,4 @@
-# C (CS101: Comprehensive C Programming Course)
-
-CS101: Comprehensive C Programming Course
+# CS101: Comprehensive C Programming Course
 
 Embrace the world of C programming with our comprehensive course, perfectly designed for beginners! Learn C from scratch and become proficient in no time.
 
