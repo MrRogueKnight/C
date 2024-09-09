@@ -1,5 +1,13 @@
 # CS101: Comprehensive C Programming Course
 
+{
+    NOTE: Hello! I'd be happy to help you with your coding issues. Please share your code and any specific problems you're facing, and I'll do my best to assist you. I'll also share my solutions and any bugs I find with you, so we can work together to improve them.
+
+    You can share your code and questions here, and I'll respond within 24-48 hours. If it takes longer, I'll let you know and aim to respond within a week at the latest.
+}
+
+Let's work together to solve your coding challenges!
+
 Embrace the world of C programming with our comprehensive course, perfectly designed for beginners! Learn C from scratch and become proficient in no time.
 
 Course Highlights:
