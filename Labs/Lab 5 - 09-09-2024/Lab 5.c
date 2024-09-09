@@ -65,10 +65,17 @@ do
             printf("Invalid choice. Exiting...\n");
            // return 1;
     }
+
         printf("\nDo you want to continue? (y/n): ");
         scanf(" %c", &cont);
-        } while (cont == 'y' || cont == 'Y');
-return 0;
+
+        while (cont != 'y' && cont != 'Y' && cont != 'n' && cont != 'N') {
+            printf("Invalid input. Please enter 'y' or 'n': ");
+            scanf(" %c", &cont);
+        }
+    } while (cont == 'y' || cont == 'Y');
+
+    return 0;
 }
 
 
