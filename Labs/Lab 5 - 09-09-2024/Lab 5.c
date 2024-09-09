@@ -13,6 +13,9 @@ void problem10();
 
 int main() {
     int choice;
+    char cont;
+do
+    {
     printf("Choose a problem to run:\n");
     printf("1. Distance Converter (Meter to Kilometer and Meter) \n");
     printf("2. First and Last Digit Sum Calculator \n");
@@ -60,9 +63,12 @@ int main() {
             break;
         default:
             printf("Invalid choice. Exiting...\n");
-            return 1;
+           // return 1;
     }
-    return 0;
+        printf("\nDo you want to continue? (y/n): ");
+        scanf(" %c", &cont);
+        } while (cont == 'y' || cont == 'Y');
+return 0;
 }
 
 
@@ -80,7 +86,6 @@ void problem1() {
 
     // print the result
     printf("%d meter = %d Km and %d meters.\n", meter, km, m);
-    return 0;
 }
 //2. First and Last Digit Sum Calculator
 // Program to find the sum of 1st and last digit of a six-digit number
@@ -98,7 +103,6 @@ void problem2(){
 
     // print the result
     printf("Sum of digits is: %d.\n", sum);
-    return 0;
 }
 //3. Three-Digit Number Digit Sum Calculator
 // Program to find the sum of all digits of a three-digit number
@@ -118,7 +122,6 @@ void problem3(){
 
     // print the result
     printf("Sum of digits is: %d.\n", sum);
-    return 0;
 }
 // 4. Three-Digit Number Reverser
 // Program to reverse a three-digit number
@@ -138,7 +141,6 @@ void problem4() {
 
     // print the result
     printf("Reversed number is: %d.\n", reversed_num);
-    return 0;
 }
 //5. Time Adder
 // Program to add two times in hour, minute, and second format
@@ -157,7 +159,6 @@ void problem5() {
 
     // print the result
     printf("Output time is: %02d:%02d:%02d.\n", hour, min, sec);
-    return 0;
 }
 //6. Character Checker
 void problem6() {
@@ -174,7 +175,6 @@ void problem6() {
     } else {
         printf("The entered character %c is not an alphabet.\n", ch);
     }
-    return 0;
 }
 //7. Calculator Program
 // Program to input two integers and provide a menu to the user to select an operation
@@ -217,8 +217,6 @@ void problem7() {
             printf("Invalid operation. Please select a valid operation.\n");
             break;
     }
-
-    return 0;
 }
 //8. Program to determine the eligibility for admission based on the given criteria
 void problem8() {
@@ -238,8 +236,6 @@ void problem8() {
     } else {
         printf("The candidate is not eligible for admission.\n");
     }
-
-    return 0;
 }
 // 9. Program to find the factors of a number
 void problem9(){
@@ -255,8 +251,6 @@ void problem9(){
         }
     }
     printf("\n");
-
-    return 0;
 }
 // 10. Program to check if a number is an Armstrong number
 void problem10() {
@@ -280,6 +274,4 @@ void problem10() {
     } else {
         printf("The given number is not Armstrong.\n");
     }
-
-    return 0;
 }
