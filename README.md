@@ -1,4 +1,4 @@
-# C
+# C (CS101: Comprehensive C Programming Course)
 
 CS101: Comprehensive C Programming Course
 
