@@ -1,6 +1,6 @@
 # CS101: Comprehensive C Programming Course
 
-
+(This course will be completed in few months) 
 Hello! I'd be happy to help you with your coding issues. Please share your code and any specific problems you're facing, and I'll do my best to assist you, so we can work together to improve them.
 You can share your code and questions here, [LinkedIn](https://linkedin.com/in/MrRogueKnight) and I'll respond within 24-48 hours. If it takes longer, I'll let you know and aim to respond within a week at the latest.
 
