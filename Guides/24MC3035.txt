@@ -4,5 +4,7 @@ Email Id: 24MC3035@rgipt.ac.in
 Branch: MATHEMATICS AND COMPUTING
 LinkedIn: https://linkedin.com/in/MrRogueKnight
 
-Solve the PDFs named : 0. Task_Practical_Lab_Question_
-Rest other files are answers
+In specified folder solve the PDFs
+Lab: 		0. Task_Practical_Lab_Questions_CS101 
+Tutorials:  	0. Task_Tutorials_Questions_CS101
+
