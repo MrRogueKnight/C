@@ -386,3 +386,109 @@ Vector Types (C23+)
 
 - Syntax: vector type vector_var;
 - Example: vector int x = (1, 2, 3);
+
+Dynamic Memory Allocation
+
+- Syntax: malloc(size_t size)
+- Example: int* ptr = malloc(10 * sizeof(int))
+
+Pointer Arithmetic
+
+- Syntax: pointer + integer
+- Example: int* ptr = array + 5
+
+Structures
+
+- Syntax: struct { type member1; type member2; }
+- Example: struct Person { int age; char name[20]; }
+
+Unions
+
+- Syntax: union { type member1; type member2; }
+- Example: union Data { int i; float f; }
+
+Enumerations
+
+- Syntax: enum { enumerator1, enumerator2, ... }
+- Example: enum Color { RED, GREEN, BLUE }
+
+TypeDefs
+
+- Syntax: typedef type name
+- Example: typedef int my_int
+
+Enumerations with TypeDefs
+
+- Syntax: typedef enum { enumerator1, enumerator2, ... } name
+- Example: typedef enum { RED, GREEN, BLUE } Color
+
+Goto Statements
+
+- Syntax: goto label;
+- Example: goto end;
+
+Lables
+
+- Syntax: label:
+- Example: end:
+
+Switch Statements
+
+- Syntax: switch(expression) { case value1: ...; break; case value2: ...; break; default: ...; }
+- Example: switch(x) { case 1: printf("x is 1"); break; case 2: printf("x is 2"); break; default: printf("x is something else"); }
+
+Constant Expressions
+
+- Syntax: const type variable = value;
+- Example: const int MAX_SIZE = 1024;
+
+Inline Functions
+
+- Syntax: inline type function(type param1, ...) { ... }
+- Example: inline int max(int a, int b) { return (a > b) ? a : b; }
+
+Pragmas
+
+- Syntax: #pragma directive
+- Example: #pragma once
+
+Variadic Functions
+
+- Syntax: type function(type param1, ...) { ... }
+- Example: int printf(const char *format, ...) { ... }
+
+Null Pointer Constants
+
+- Syntax: NULL
+- Example: int* ptr = NULL;
+
+Static Assertions
+
+- Syntax: _Static_assert(expression, message);
+- Example: _Static_assert(sizeof(int) == 4, "int is not 32-bit");
+
+Thread Local Storage
+
+- Syntax: _Thread_local type variable;
+- Example: _Thread_local int tls_var;
+
+Atomic Operations
+
+- Syntax: atomic_fetch_add(&atomic_var, 1);
+- Example: atomic_fetch_add(&atomic_var, 1);
+
+Sync Primitives
+
+- Syntax: sync_fetch_and_add(&sync_var, 1);
+- Example: sync_fetch_and_add(&sync_var, 1);
+
+Lambda Expressions (C23+)
+
+- Syntax: ^type(parameters) { body }
+- Example: ^int(int x) { return x * x; }
+
+Generic Selections (C11+)
+
+- Syntax: _Generic(expression, type1: value1, type2: value2, ...)
+- Example: _Generic(x, int: 1, float: 2, default: 0)
+
