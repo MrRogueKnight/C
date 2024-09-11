@@ -90,6 +90,92 @@ Unary Operators
 - -- (decrement)
 - sizeof (returns the size of a type or variable)
 
+Conditional Operators
+
+- Syntax: expression1 ? expression2 : expression3
+- Example: x > 5 ? y = 10 : y = 5
+
+Comma Operators
+
+- Syntax: expression1, expression2
+- Example: x = 5, y = 10
+
+Cast Operators
+
+- Syntax: (type) expression
+- Example: (int) 3.14
+
+Sizeof Operators
+
+- Syntax: sizeof expression
+- Example: sizeof(int)
+
+Alignof Operators (C11+)
+
+- Syntax: alignof(type)
+- Example: alignof(int)
+
+Noexcept Operators (C11+)
+
+- Syntax: noexcept(expression)
+- Example: noexcept(x > 5)
+
+Assignement Operators
+
+- Syntax: variable = value
+- Example: x = 5
+
+Addition Assignment Operators
+
+- Syntax: variable += value
+- Example: x += 5
+
+Subtraction Assignment Operators
+
+- Syntax: variable -= value
+- Example: x -= 5
+
+Multiplication Assignment Operators
+
+- Syntax: variable *= value
+- Example: x *= 5
+
+Division Assignment Operators
+
+- Syntax: variable /= value
+- Example: x /= 5
+
+Modulus Assignment Operators
+
+- Syntax: variable %= value
+- Example: x %= 5
+
+Bitwise AND Assignment Operators
+
+- Syntax: variable &= value
+- Example: x &= 5
+
+Bitwise OR Assignment Operators
+
+- Syntax: variable |= value
+- Example: x |= 5
+
+Bitwise XOR Assignment Operators
+
+- Syntax: variable ^= value
+- Example: x ^= 5
+
+Bitwise Left Shift Assignment Operators
+
+- Syntax: variable <<= value
+- Example: x <<= 5
+
+Bitwise Right Shift Assignment Operators
+
+- Syntax: variable >>= value
+- Example: x >>= 5
+
+
 Bitwise Operators
 
 - & (bitwise and)
@@ -492,3 +578,42 @@ Generic Selections (C11+)
 - Syntax: _Generic(expression, type1: value1, type2: value2, ...)
 - Example: _Generic(x, int: 1, float: 2, default: 0)
 
+Designated Initializers (C99+)
+
+- Syntax: type variable = {.member1 = value1, .member2 = value2};
+- Example: struct Person person = {.name = "John", .age = 30};
+
+Compound Literals (C99+)
+
+- Syntax: (type) {value1, value2, ...}
+- Example: (int []) {1, 2, 3}
+
+Variadic Macros (C99+)
+
+- Syntax: #define macro(name, ...)
+- Example: #define printf("format string: " #__VA_ARGS__)
+
+Generic Selections (C11+)
+
+- Syntax: _Generic(expression, type1: value1, type2: value2, ...)
+- Example: _Generic(x, int: 1, float: 2, default: 0)
+
+Static Assertions (C11+)
+
+- Syntax: _Static_assert(expression, message);
+- Example: _Static_assert(sizeof(int) == 4, "int is not 32-bit");
+
+Thread Local Storage (C11+)
+
+- Syntax: _Thread_local type variable;
+- Example: _Thread_local int tls_var;
+
+Atomic Types (C11+)
+
+- Syntax: _Atomic(type) variable;
+- Example: _Atomic(int) atomic_var;
+
+Sync Primitives (C11+)
+
+- Syntax: sync_fetch_add(&sync_var, 1);
+- Example: sync_fetch_add(&sync_var, 1);
