@@ -12,13 +12,17 @@ void find_factors(int n) {
 }
 
 int main() {
+
     // Set 1: n = 6
-    int n = 6;
-    find_factors(n);
+    // int n = 6;
+    //find_factors(n);
 
     // Set 2: n = 21
-    n = 21;
+    // n = 21;
+    // find_factors(n);
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
     find_factors(n);
-
     return 0;
 }
