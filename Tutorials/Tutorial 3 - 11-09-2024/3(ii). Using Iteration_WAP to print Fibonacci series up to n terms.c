@@ -1,23 +1,24 @@
 #include <stdio.h>
 
-// Function to print Fibonacci series using iteration
-void fibonacci_iterative(int n) {
-    int t1 = 0, t2 = 1;
-    printf("The Fibonacci series up to %d terms is: ", n);
-    for (int i = 1; i <= n; i++) {
-        printf("%d ", t1);
-        int temp = t1 + t2;
-        t1 = t2;
-        t2 = temp;
+void printFibonacciIterative(int n) {
+    if (n <= 0) {
+        printf("Input should be a positive integer\n");
+        return;
     }
-    printf("\n");
+    int t1 = 0, t2 = 1;
+    printf("%d %d ", t1, t2);
+    for (int i = 3; i <= n; i++) {
+        int nextTerm = t1 + t2;
+        printf("%d ", nextTerm);
+        t1 = t2;
+        t2 = nextTerm;
+    }
 }
 
 int main() {
     int n;
     printf("Enter the number of terms: ");
     scanf("%d", &n);
-    fibonacci_iterative(n);
-
+    printFibonacciIterative(n);
     return 0;
 }
