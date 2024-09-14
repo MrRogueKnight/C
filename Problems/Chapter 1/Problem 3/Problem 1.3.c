@@ -12,7 +12,8 @@ Percentage Marks = 69.599998
 int main(){
     float sub1, sub2, sub3, sub4, sub5,Aggregate_Marks,Percentage_Marks;
     printf("Enter marks in 5 subjects: ");
-    scanf("%f", &sub1);scanf("%f", &sub2);scanf("%f", &sub3);scanf("%f", &sub4);scanf("%f", &sub5);
+    //scanf("%f", &sub1);scanf("%f", &sub2);scanf("%f", &sub3);scanf("%f", &sub4);scanf("%f", &sub5);
+    scanf("%f %f %f %f %f", &sub1, &sub2, &sub3, &sub4, &sub5);
     Aggregate_Marks = sub1 + sub2 + sub3 + sub4 + sub5;
     Percentage_Marks = Aggregate_Marks/5;
     printf("\nAggregate Marks = %f", Aggregate_Marks);
