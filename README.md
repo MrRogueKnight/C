@@ -18,7 +18,7 @@ Lab / Assignments / Task:
 - Use solutions for help only when needed
 - Practice exercises to reinforce your learning
 
-Tutorials / Quizzes:
+Tutorials / Problems:
 
 - Tricky questions section, where you'll learn to solve challenging problems
 - Practice and improve your problem-solving skills
@@ -44,9 +44,9 @@ Additional Tips:
 
 GitHub Repository:
 
-- Access the course materials, Lab, Tutorials, Assignments, and Quizzes
+- Access the course materials, Lab, Tutorials, Assignments, and Problems
 - Start your C programming journey today!
 
 Note: GFG stands for GeeksforGeeks, a popular website for programming concepts, examples, and practice problems.
 
-✪ Mr Rogue Knight | Prashant 
+✪ Mr Rogue Knight | Prashant
