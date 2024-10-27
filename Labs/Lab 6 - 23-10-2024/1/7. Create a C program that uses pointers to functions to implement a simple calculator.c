@@ -63,3 +63,16 @@ int multiply(int a, int b) {
 int divide(int a, int b) {
     return a / b;  // Integer division
 }
+
+
+/*
+Enter two integers: 45 60
+Choose an operation:
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+Enter your choice (1-4): 3
+Result: 2700
+
+*/

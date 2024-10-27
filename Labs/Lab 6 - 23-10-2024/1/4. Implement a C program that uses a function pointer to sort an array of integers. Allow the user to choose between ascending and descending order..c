@@ -78,3 +78,15 @@ int main() {
 
     return 0;
 }
+/*
+Enter the size of the array: 4
+Enter 4 integers:
+1 97 78 20
+Choose sorting order:
+1. Ascending
+2. Descending
+Enter your choice (1 or 2): 1
+Sorted array:
+1 20 78 97
+*/
+

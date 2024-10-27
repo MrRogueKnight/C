@@ -35,3 +35,10 @@ int main() {
 
     return 0;
 }
+
+/*
+Enter the size of the array: 5
+Enter 5 integers:
+45 7 5 8 5
+The smallest number in the array is: 5
+*/

@@ -44,3 +44,10 @@ int main() {
 
     return 0;
 }
+/*
+Enter the size of the array: 5
+Enter 5 integers:
+46 7 89 45 41
+Reversed array:
+41 45 89 7 46
+*/

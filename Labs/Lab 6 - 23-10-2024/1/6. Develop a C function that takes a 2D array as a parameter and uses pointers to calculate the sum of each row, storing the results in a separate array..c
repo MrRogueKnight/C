@@ -43,3 +43,14 @@ int main() {
 
     return 0;
 }
+
+/*
+Enter the number of rows: 2
+Enter the number of columns: 2
+Enter the elements of the array:
+1 2
+3 4
+Sum of each row:
+Row 1: 3
+Row 2: 7
+*/

@@ -50,3 +50,15 @@ int main() {
 
     return 0;
 }
+
+/*
+Enter the number of strings: 3
+Enter 3 strings:
+mobile
+car
+french
+Strings in alphabetical order:
+car
+french
+mobile
+*/

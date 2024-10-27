@@ -26,3 +26,9 @@ int main() {
 
     return 0;
 }
+/*
+Enter two integers: 5
+7
+Before swapping: a = 5, b = 7
+After swapping: a = 7, b = 5
+*/

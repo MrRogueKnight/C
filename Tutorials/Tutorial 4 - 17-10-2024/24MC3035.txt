@@ -1,0 +1,460 @@
+1. WAP to find the sum of two matrices of order 2x2 using multidimensional arrays
+
+#include <stdio.h>
+
+int main() {
+    // Declare two 2x2 matrices and one for the result
+    float a[2][2], b[2][2], sum[2][2];
+
+    // Input elements of the first matrix
+    printf("Enter elements of 1st matrix:\n");
+    printf("Enter a11: ");
+    scanf("%f", &a[0][0]);
+    printf("Enter a12: ");
+    scanf("%f", &a[0][1]);
+    printf("Enter a21: ");
+    scanf("%f", &a[1][0]);
+    printf("Enter a22: ");
+    scanf("%f", &a[1][1]);
+
+    // Input elements of the second matrix
+    printf("Enter elements of 2nd matrix:\n");
+    printf("Enter b11: ");
+    scanf("%f", &b[0][0]);
+    printf("Enter b12: ");
+    scanf("%f", &b[0][1]);
+    printf("Enter b21: ");
+    scanf("%f", &b[1][0]);
+    printf("Enter b22: ");
+    scanf("%f", &b[1][1]);
+
+    // Calculate the sum of the two matrices
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            sum[i][j] = a[i][j] + b[i][j];
+        }
+    }
+
+    // Display the result
+    printf("Sum of the two matrices:\n");
+    printf("%.2f %.2f\n", sum[0][0], sum[0][1]);
+    printf("%.2f %.2f\n", sum[1][0], sum[1][1]);
+
+    return 0;
+}
+
+
+Output: 
+Enter elements of 1st matrix:
+Enter a11: 2
+Enter a12: 0.5
+Enter a21: -1.1
+Enter a22: 2
+Enter elements of 2nd matrix:
+Enter b11: 0.2
+Enter b12: 0
+Enter b21: 0.23
+Enter b22: 23
+Sum of the two matrices:
+2.20 0.50
+-0.87 25.00
+
+
+2. WAP to multiply two matrices and display it.
+ 
+
+#include <stdio.h>
+
+int main() {
+    // Declare two 3x3 matrices and one for the result
+    int a[3][3], b[3][3], result[3][3] = {0};
+
+    // Input elements of the first matrix
+    printf("Enter value of matrix A:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    // Input elements of the second matrix
+    printf("Enter value of matrix B:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            scanf("%d", &b[i][j]);
+        }
+    }
+
+    // Display the first matrix
+    printf("\nValue of matrix A:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Display the second matrix
+    printf("\nValue of matrix B:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", b[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Matrix multiplication
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                result[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+
+    // Display the result matrix
+    printf("\nAfter Multiplication resultant matrix is:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", result[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+Output: 
+Value of matrix A:
+1 1 1 
+1 1 1 
+1 1 1 
+
+Value of matrix B:
+2 2 2 
+2 2 2 
+2 2 2 
+
+After Multiplication resultant matrix is:
+6 6 6 
+6 6 6 
+6 6 6 
+
+
+3. WAP by designing a recursive function to calculate the sum of the digits of any given integer until it becomes a single digit number using function
+
+#include <stdio.h>
+
+// Recursive function to calculate the sum of digits
+int sumOfDigits(int num) {
+    // Base case: if the number is a single digit
+    if (num < 10) {
+        return num;
+    }
+    
+    // Recursive case: sum the digits and call the function again
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;  // Add the last digit to sum
+        num /= 10;        // Remove the last digit
+    }
+    
+    // Call the function recursively with the sum
+    return sumOfDigits(sum);
+}
+
+int main() {
+    int number;
+    
+    // Set 1
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    printf("Sum of the digits (up to single digit) of %d = %d\n", number, sumOfDigits(number));
+    
+    // Set 2
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    printf("Sum of the digits (up to single digit) of %d = %d\n", number, sumOfDigits(number));
+
+    return 0;
+}
+
+
+Output : 
+Enter a number: 589
+Sum of the digits (up to single digit) of 589 = 4
+
+
+
+4. WAP to sort the elements of an 1-D array in ascending order by creating a suitable function for sort operation.
+
+#include <stdio.h>
+
+// Function to sort the array in ascending order
+void sortArray(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap arr[j] and arr[j + 1]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int size;
+
+    // Set 1
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    int arr1[size];
+
+    printf("Enter the elements of the array: ");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr1[i]);
+    }
+
+    printf("Set 1:\n");
+    printf("Before sorting elements of the given array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr1[i]);
+    }
+    printf("\n");
+
+    // Sort the first array
+    sortArray(arr1, size);
+
+    printf("After sorting elements of the given array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr1[i]);
+    }
+    printf("\n");
+
+    // Set 2
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    int arr2[size];
+
+    printf("Enter the elements of the array: ");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr2[i]);
+    }
+
+    printf("Set 2:\n");
+    printf("Before sorting elements of the given array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+
+    // Sort the second array
+    sortArray(arr2, size);
+
+    printf("After sorting elements of the given array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+Output: 
+
+Enter the size of the array: 3
+Enter the elements of the array: 5 0 -2
+
+Before sorting elements of the given array: 5 0 -2 
+After sorting elements of the given array: -2 0 5 
+
+
+5. Write a C program to find the sum of only odd values in a 1-D array using a function ODDSUM.
+
+#include <stdio.h>
+
+// Function to calculate the sum of odd numbers in the array
+int ODDSUM(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] % 2 != 0) { // Check if the number is odd
+            sum += arr[i];
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int size;
+
+    // Set 1
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    int arr1[size];
+
+    printf("Enter the elements of the array: ");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr1[i]);
+    }
+
+    // Calculate and display the sum of odd values for Set 1
+    printf("Set 1:\n");
+    int sum1 = ODDSUM(arr1, size);
+    printf("Sum of odd values: %d\n", sum1);
+
+    // Set 2
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    int arr2[size];
+
+    printf("Enter the elements of the array: ");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr2[i]);
+    }
+
+    // Calculate and display the sum of odd values for Set 2
+    printf("Set 2:\n");
+    int sum2 = ODDSUM(arr2, size);
+    printf("Sum of odd values: %d\n", sum2);
+
+    return 0;
+}
+
+
+Output:
+Enter the size of the array: 3
+Enter the elements of the array: 5 0 -2
+Set 2:
+Sum of odd values: 5
+
+
+6. WAP to find the factorial of a number n by writing a recursive function for it.
+
+#include <stdio.h>
+
+// Recursive function to calculate factorial
+int factorial(int n) {
+    // Base case: factorial of 0 or 1 is 1
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    // Recursive case: n! = n * (n-1)!
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int number;
+
+    // Set 1
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    printf("Set 1:\n");
+    printf("Factorial of %d = %d\n", number, factorial(number));
+
+    // Set 2
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    printf("Set 2:\n");
+    printf("Factorial of %d = %d\n", number, factorial(number));
+    return 0;
+}
+
+
+Output: 
+Enter a number: 4
+Factorial of 4 = 24
+
+
+7. Write a C program to swap the largest and smallest element of a 2-D array of using a function SWAP.
+
+#include <stdio.h>
+#define MAX_ROWS 10
+#define MAX_COLS 10
+
+// Function to swap largest and smallest elements in the matrix
+void SWAP(int matrix[MAX_ROWS][MAX_COLS], int rows, int cols) {
+    int min = matrix[0][0];
+    int max = matrix[0][0];
+    int minRow = 0, minCol = 0, maxRow = 0, maxCol = 0;
+
+    // Find the largest and smallest elements
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if (matrix[i][j] < min) {
+                min = matrix[i][j];
+                minRow = i;
+                minCol = j;
+            }
+            if (matrix[i][j] > max) {
+                max = matrix[i][j];
+                maxRow = i;
+                maxCol = j;
+            }
+        }
+    }
+
+    // Swap the largest and smallest elements
+    matrix[minRow][minCol] = max;
+    matrix[maxRow][maxCol] = min;
+}
+
+int main() {
+    int rows, cols;
+    int matrix[MAX_ROWS][MAX_COLS];
+
+    // Input size of the matrix
+    printf("Enter the row and column size of the matrix: ");
+    scanf("%d %d", &rows, &cols);
+
+    // Input matrix elements
+    printf("Enter the matrix:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    // Display the entered matrix
+    printf("\nEntered matrix:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Swap largest and smallest elements
+    SWAP(matrix, rows, cols);
+
+    // Display the matrix after swapping
+    printf("\nMatrix after swapping:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+Output: 
+
+Enter the row and column size of the matrix: 3 4
+Enter the matrix:
+4 5 6 2
+1 9 3 0
+7 -2 1 8
+
+Entered matrix:
+4 5 6 2 
+1 9 3 0 
+7 -2 1 8 
+
+Matrix after swapping:
+4 5 6 2 
+1 -2 3 0 
+7 9 1 8 
