@@ -1,22 +1,39 @@
 #include <stdio.h>
 #include <math.h>
 
-struct Point
-    {
+// Define the Point struct
+struct Point {
     double x;
     double y;
-    };
+};
 
-double distance(struct Point p1, struct Point p2)
-{
+// Function to calculate the distance between two points
+double calculateDistance(struct Point p1, struct Point p2) {
     return sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2));
 }
 
 int main() {
-    struct Point p1 = {0, 0};
-    struct Point p2 = {3, 4};
+    // Define two points
+    struct Point point1, point2;
 
-    printf("Distance between points: %.2f\n", distance(p1, p2));
+    // Input coordinates for point1
+    printf("Enter x and y coordinates for point1: ");
+    scanf("%lf %lf", &point1.x, &point1.y);
+
+    // Input coordinates for point2
+    printf("Enter x and y coordinates for point2: ");
+    scanf("%lf %lf", &point2.x, &point2.y);
+
+    // Calculate the distance
+    double distance = calculateDistance(point1, point2);
+
+    // Print the distance
+    printf("Distance between the points: %.2lf\n", distance);
 
     return 0;
 }
+/**
+Enter x and y coordinates for point1: 2 3
+Enter x and y coordinates for point2: 10 13
+Distance between the points: 12.81
+*/

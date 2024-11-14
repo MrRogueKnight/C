@@ -23,3 +23,13 @@ int main() {
 
     return 0;
 }
+/**
+Output1: Select a traffic light color (0 for RED, 1 for YELLOW, 2 for GREEN): 0
+Action: Stop
+
+Output2: Select a traffic light color (0 for RED, 1 for YELLOW, 2 for GREEN): 1
+Action: Caution
+
+Output3: Select a traffic light color (0 for RED, 1 for YELLOW, 2 for GREEN): 2
+Action: Go
+*/
