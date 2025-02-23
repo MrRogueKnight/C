@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint App</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: #fff;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .light-mode {
+            background: #fff;
+            color: #000;
+        }
+
+        header {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .light-mode header {
+            background: #f1f1f1;
+            color: #000;
+        }
+
+        .toggle-mode {
+            background: #444;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .light-mode .toggle-mode {
+            background: #ddd;
+            color: #000;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background: #333;
+            padding: 15px;
+            border-bottom: 2px solid #444;
+        }
+
+        .light-mode .toolbar {
+            background: #eee;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .toolbar button, .toolbar input[type="color"] {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            background: #555;
+            color: #fff;
+        }
+
+        .light-mode .toolbar button, .light-mode .toolbar input[type="color"] {
+            background: #ccc;
+            color: #000;
+        }
+
+        .toolbar button:hover, .toolbar input[type="color"]:hover {
+            background: #666;
+        }
+
+        .light-mode .toolbar button:hover, .light-mode .toolbar input[type="color"]:hover {
+            background: #bbb;
+        }
+
+        canvas {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #fff;
+            background: #222;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .light-mode canvas {
+            border: 2px solid #000;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Paint App</h1>
+        <button class="toggle-mode">Toggle Dark/Light Mode</button>
+    </header>
+    
+    <div class="toolbar">
+        <button id="pen">Pen</button>
+        <button id="eraser">Eraser</button>
+        <button id="rectangle">Rectangle</button>
+        <button id="circle">Circle</button>
+        <button id="clear">Clear</button>
+        <input type="color" id="color">
+        <button id="save">Save</button>
+    </div>
+    
+    <canvas id="canvas" width="800" height="600"></canvas>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const colorEl = document.getElementById('color');
+        const clearEl = document.getElementById('clear');
+        const eraserEl = document.getElementById('eraser');
+        const penEl = document.getElementById('pen');
+        const rectEl = document.getElementById('rectangle');
+        const circleEl = document.getElementById('circle');
+        const saveEl = document.getElementById('save');
+        const toggleMode = document.querySelector('.toggle-mode');
+        const body = document.body;
+
+        let drawing = false;
+        let mode = 'pen';
+        let color = colorEl.value;
+        let startX, startY;
+
+        canvas.addEventListener('mousedown', (e) => {
+            drawing = true;
+            startX = e.offsetX;
+            startY = e.offsetY;
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+        });
+
+        canvas.addEventListener('mouseup', (e) => {
+            drawing = false;
+            if (mode === 'rectangle') {
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.strokeRect(startX, startY, e.offsetX - startX, e.offsetY - startY);
+            } else if (mode === 'circle') {
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                const radius = Math.sqrt(Math.pow(e.offsetX - startX, 2) + Math.pow(e.offsetY - startY, 2));
+                ctx.beginPath();
+                ctx.arc(startX, startY, radius, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!drawing || (mode !== 'pen' && mode !== 'eraser')) return;
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.strokeStyle = mode === 'eraser' ? '#222' : color;
+            ctx.lineWidth = mode === 'pen' ? 5 : 10;
+            ctx.stroke();
+        });
+
+        colorEl.addEventListener('change', (e) => color = e.target.value);
+        eraserEl.addEventListener('click', () => mode = 'eraser');
+        penEl.addEventListener('click', () => mode = 'pen');
+        rectEl.addEventListener('click', () => mode = 'rectangle');
+        circleEl.addEventListener('click', () => mode = 'circle');
+        clearEl.addEventListener('click', () => ctx.clearRect(0, 0, canvas.width, canvas.height));
+        saveEl.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.download = 'drawing.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+
+        toggleMode.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+        });
+    </script>
+</body>
+</html>
