@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .quiz-container, .setup-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #f4f4f4;
+            margin: 0.5rem 0;
+            padding: 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        ul li:hover {
+            background: #dcdcdc;
+        }
+
+        ul li.selected {
+            background: #764ba2;
+            color: white;
+        }
+
+        button {
+            background: #764ba2;
+            color: white;
+            border: none;
+            padding: 1rem;
+            width: 100%;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5a3b89;
+        }
+
+        input {
+            padding: 0.8rem;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="setup-container" id="setup">
+        <h2>Enter the number of questions you want to solve:</h2>
+        <input type="number" id="numQuestions" min="1" max="10" value="5">
+        <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <div class="quiz-container" id="quiz" style="display: none;">
+        <h2 id="question">Loading question...</h2>
+        <ul>
+            <li id="a_text" onclick="selectAnswer('a')">Option A</li>
+            <li id="b_text" onclick="selectAnswer('b')">Option B</li>
+            <li id="c_text" onclick="selectAnswer('c')">Option C</li>
+            <li id="d_text" onclick="selectAnswer('d')">Option D</li>
+        </ul>
+        <button id="submit">Submit</button>
+        <button id="undo" onclick="undoAnswer()">Undo</button>
+    </div>
+
+    <script>
+        const quizData = [
+            { question: "Which language runs in a web browser?", a: "Java", b: "C", c: "Python", d: "JavaScript", correct: "d" },
+            { question: "What does CSS stand for?", a: "Central Style Sheets", b: "Cascading Style Sheets", c: "Cascading Simple Sheets", d: "Cars SUVs Sailboats", correct: "b" },
+            { question: "What does HTML stand for?", a: "Hypertext Markup Language", b: "Hypertext Markdown Language", c: "Hyperloop Machine Language", d: "Helicopters Terminals Motorboats Lamborghinis", correct: "a" },
+            { question: "What year was JavaScript launched?", a: "1996", b: "1995", c: "1994", d: "none of the above", correct: "b" },
+            { question: "Which of the following is a JavaScript framework?", a: "React", b: "Laravel", c: "Django", d: "Spring", correct: "a" }
+        ];
+
+        let currentQuiz = 0;
+        let score = 0;
+        let selectedAnswer = null;
+        let userQuestions = 5;
+        let questionHistory = [];
+
+        function startQuiz() {
+            userQuestions = parseInt(document.getElementById("numQuestions").value) || 5;
+            document.getElementById("setup").style.display = "none";
+            document.getElementById("quiz").style.display = "block";
+            loadQuiz();
+        }
+
+        function loadQuiz() {
+            const currentQuizData = quizData[currentQuiz];
+            document.getElementById("question").innerText = currentQuizData.question;
+            document.getElementById("a_text").innerText = currentQuizData.a;
+            document.getElementById("b_text").innerText = currentQuizData.b;
+            document.getElementById("c_text").innerText = currentQuizData.c;
+            document.getElementById("d_text").innerText = currentQuizData.d;
+            selectedAnswer = null;
+            document.querySelectorAll("ul li").forEach(li => li.classList.remove("selected"));
+        }
+
+        function selectAnswer(answer) {
+            selectedAnswer = answer;
+            document.querySelectorAll("ul li").forEach(li => li.classList.remove("selected"));
+            document.getElementById(answer + "_text").classList.add("selected");
+        }
+
+        function undoAnswer() {
+            if (questionHistory.length > 0) {
+                currentQuiz = questionHistory.pop();
+                loadQuiz();
+            }
+        }
+
+        document.getElementById("submit").addEventListener("click", () => {
+            if (selectedAnswer) {
+                questionHistory.push(currentQuiz);
+                if (selectedAnswer === quizData[currentQuiz].correct) {
+                    score++;
+                }
+                currentQuiz++;
+                if (currentQuiz < userQuestions && currentQuiz < quizData.length) {
+                    loadQuiz();
+                } else {
+                    document.getElementById("quiz").innerHTML = `<h2>You scored ${score}/${userQuestions}</h2>
+                    <button onclick="location.reload()">Play Again</button>`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
