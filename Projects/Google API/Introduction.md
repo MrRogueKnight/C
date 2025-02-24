@@ -1,4 +1,5 @@
-### **1. Introduction**  
+---
+# **1. Introduction** 
 #### **What You'll Build**  
 At the end of this codelab, you will have a **minimum viable website** with a **fully functional Google Pay integration**.  
 - The project will retrieve a **payment token**, which can be **sent to a payment service provider (PSP)** for processing transactions.  
@@ -18,8 +19,6 @@ By completing this course, you will learn:
 🔹 A **Google Pay merchantId** for production use (sign up in **Google Pay & Wallet Console**).  
 🔹 A **basic understanding of JavaScript and HTML** to follow along smoothly.  
 🔹 Optional: A **test PSP (e.g., Stripe, Adyen, or Braintree)** to simulate real transactions.  
- 
-
 
 ---
 
@@ -133,3 +132,99 @@ Open `index.html` in your **IDE** (VS Code, Sublime Text, WebStorm, etc.), and a
 - Now that the HTML structure is ready, the next step is to **define `onGooglePayLoaded()`** in `main.js` to initialize the Google Pay button.  
 
 ---
+
+# **3. Configure Google Pay**  
+
+## **Step 1: Understanding Google Pay Configuration**  
+
+A **Google Pay payment request** requires a request object. The **`baseGooglePayRequest`** object contains the **minimum required settings** for all payment requests.  
+Additional settings will be added later as needed.  
+
+---
+
+## **Step 2: Add Google Pay Configuration to `main.js`**  
+
+Open `main.js` and **add the following optimized code**:  
+
+```javascript
+//=============================================================================
+// Google Pay Configuration
+//=============================================================================
+
+/**
+ * The DOM element ID where the Google Pay button will be inserted.
+ */
+const GPAY_BUTTON_CONTAINER_ID = "gpay-container";
+
+/**
+ * Merchant details (update these for production).
+ * - `merchantId` is required for the PRODUCTION environment.
+ * - `merchantName` is your business name.
+ */
+const merchantInfo = {
+  merchantId: "12345678901234567890", // Replace with your real merchant ID
+  merchantName: "Example Merchant"
+};
+
+/**
+ * Base Google Pay request object.
+ * This object contains the minimum required settings for all requests.
+ */
+const baseGooglePayRequest = {
+  apiVersion: 2,
+  apiVersionMinor: 0,
+  allowedPaymentMethods: [
+    {
+      type: "CARD",
+      parameters: {
+        allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
+        allowedCardNetworks: ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"]
+      },
+      tokenizationSpecification: {
+        type: "PAYMENT_GATEWAY",
+        parameters: {
+          gateway: "example", // Replace with your actual payment gateway
+          gatewayMerchantId: "exampleGatewayMerchantId" // Replace with actual gateway merchant ID
+        }
+      }
+    }
+  ],
+  merchantInfo
+};
+
+/**
+ * Prevent accidental modifications to `baseGooglePayRequest`.
+ * - This ensures all modifications are done on a cloned version.
+ */
+Object.freeze(baseGooglePayRequest);
+```
+
+---
+
+## **Step 3: Code Explanation & Best Practices**  
+
+### ✅ **1. Google Pay Button Container (`GPAY_BUTTON_CONTAINER_ID`)**
+- **Why?** This constant ensures that the Google Pay button is always inserted into the correct `<div id="gpay-container">`.  
+
+### ✅ **2. Merchant Configuration (`merchantInfo`)**
+- **For TEST Environment**: `merchantId` is **optional**.  
+- **For PRODUCTION**: `merchantId` is **required**. Register it at the [Google Pay & Wallet Console](https://pay.google.com/business/console).  
+
+### ✅ **3. Base Google Pay Request (`baseGooglePayRequest`)**
+- Contains **core settings** for Google Pay transactions.  
+- Supports **major card networks** (Visa, Mastercard, AMEX, etc.).  
+- Uses **"PAYMENT_GATEWAY"** tokenization (replace `"example"` with your real gateway).  
+
+### ✅ **4. Freezing Configuration (`Object.freeze`)**
+- **Why?** This prevents accidental modifications to `baseGooglePayRequest`.  
+- If modifications are needed, **clone the object instead of mutating it directly**.  
+
+---
+
+## **Step 4: Resources & Next Steps**  
+
+📌 **Further Reading & Documentation:**  
+- [🔗 Google Pay API Request Objects Documentation](https://developers.google.com/pay/api/web/reference/request-objects)  
+- [🔗 Payment Methods & Tokenization Specification](https://developers.google.com/pay/api/web/reference/request-objects#PaymentMethod)  
+- [🔗 Google Pay & Wallet Console](https://pay.google.com/business/console)  
+
