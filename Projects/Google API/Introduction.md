@@ -228,3 +228,78 @@ Object.freeze(baseGooglePayRequest);
 - [🔗 Payment Methods & Tokenization Specification](https://developers.google.com/pay/api/web/reference/request-objects#PaymentMethod)  
 - [🔗 Google Pay & Wallet Console](https://pay.google.com/business/console)  
 
+---
+# **4. Add Google Payments Client**  
+
+## **Step 1: Understanding the Payments Client**  
+
+The **Google Payments Client** is responsible for:  
+✔ Making **payment requests**.  
+✔ Managing **merchant credentials**.  
+✔ Handling **callbacks** (e.g., payment data changes, authorization changes).  
+
+📌 **Note:**  
+- This codelab **only** covers making payment requests.  
+- Advanced topics (like `PaymentDataCallbacks`) are not covered here.  
+
+---
+
+## **Step 2: Add Payments Client Code to `main.js`**  
+
+Append this **optimized code** at the bottom of `main.js`:  
+
+```javascript
+//=============================================================================
+// Google Payments Client Singleton
+//=============================================================================
+
+/**
+ * Singleton instance of the Google Payments client.
+ */
+let paymentsClient = null;
+
+/**
+ * Returns a Google Payments client instance.
+ * - Ensures only a single instance is created (Singleton pattern).
+ * - Configures the client for TEST or PRODUCTION environments.
+ *
+ * @returns {google.payments.api.PaymentsClient} Google Payments client instance
+ */
+function getGooglePaymentsClient() {
+  if (!paymentsClient) {
+    paymentsClient = new google.payments.api.PaymentsClient({
+      environment: "TEST", // Change to "PRODUCTION" in live deployments
+      merchantInfo, // Uses the merchantInfo object defined earlier
+      // TODO: Implement paymentDataCallbacks for dynamic updates (codelab pay-web-201)
+    });
+  }
+  return paymentsClient;
+}
+```
+
+---
+
+## **Step 3: Code Explanation & Best Practices**  
+
+### ✅ **1. Singleton Pattern (`paymentsClient` variable)**
+- Ensures **only one instance** of `PaymentsClient` is created.  
+- Prevents **unnecessary memory usage** or duplicate instances.  
+
+### ✅ **2. `getGooglePaymentsClient()` Method**
+- **Checks if `paymentsClient` already exists**.  
+- If not, **creates and stores a new instance**.  
+- Returns the same instance **throughout the script lifecycle**.  
+
+### ✅ **3. Google Pay Environment (`environment` key)**
+- **"TEST"** → Default for development (does not process real payments).  
+- **"PRODUCTION"** → Required for live transactions.  
+
+### ✅ **4. Merchant Information (`merchantInfo`)**
+- Uses the **same merchant details** from the previous step.  
+- Ensures consistency across all payment requests.  
+
+### ✅ **5. Placeholder for `paymentDataCallbacks`**
+- This is used for **dynamic payment updates**.  
+- Not needed in this codelab but useful for advanced cases (e.g., tax calculations).  
+
+---
