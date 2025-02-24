@@ -303,3 +303,88 @@ function getGooglePaymentsClient() {
 - Not needed in this codelab but useful for advanced cases (e.g., tax calculations).  
 
 ---
+Here’s the **best-optimized version** of your **"Add Helpers"** section, improving clarity, efficiency, and maintainability. 🚀  
+
+---
+
+# **5. Add Helper Functions**  
+
+## **Step 1: Understanding Helper Functions**  
+
+Helper functions **improve code readability and reusability** by:  
+✔ Keeping logic **modular** and **organized**.  
+✔ Reducing **repetitive code**.  
+✔ Ensuring **maintainability and scalability**.  
+
+---
+
+## **Step 2: Add the Helper Functions to `main.js`**  
+
+Append the following **optimized code** to the bottom of `main.js`:  
+
+```javascript
+//=============================================================================
+// Helpers
+//=============================================================================
+
+/**
+ * Creates a deep copy of an object.
+ * - Uses JSON serialization to avoid shared references.
+ * - Ensures changes to copied objects do not affect the original.
+ *
+ * @param {Object} obj - The object to clone.
+ * @returns {Object} A new deep copy of the object.
+ */
+const deepCopy = (obj) => JSON.parse(JSON.stringify(obj));
+
+/**
+ * Renders the Google Pay button inside the designated container.
+ * - Uses the singleton payments client to create the button.
+ * - Appends the button to the DOM inside the specified container.
+ */
+function renderGooglePayButton() {
+  const container = document.getElementById(GPAY_BUTTON_CONTAINER_ID);
+  if (!container) {
+    console.error(`Error: Google Pay container element (#${GPAY_BUTTON_CONTAINER_ID}) not found.`);
+    return;
+  }
+
+  const button = getGooglePaymentsClient().createButton({
+    onClick: onGooglePaymentButtonClicked
+  });
+
+  container.appendChild(button);
+}
+```
+
+---
+
+## **Step 3: Code Explanation & Best Practices**  
+
+### ✅ **1. `deepCopy(obj)`**  
+- **Creates a deep copy** of any JavaScript object.  
+- Uses **JSON serialization** (`JSON.parse(JSON.stringify(obj))`).  
+- Prevents **shared references**, ensuring changes to the copy **do not affect the original**.  
+- **Best Practice:** Always use deep copies when modifying **configuration objects** to prevent unintended mutations.  
+
+### ✅ **2. `renderGooglePayButton()`**  
+- **Fetches the Google Pay button container** using `document.getElementById(GPAY_BUTTON_CONTAINER_ID)`.  
+- **Checks if the container exists** before adding the button (prevents runtime errors).  
+- Uses `getGooglePaymentsClient().createButton()` to generate the button.  
+- Attaches `onGooglePaymentButtonClicked` as the **click event handler**.  
+- **Logs an error (`console.error`) if the container is missing**, improving debugging.  
+
+---
+
+## **Step 4: Additional Customization**  
+
+🎨 **Want to customize the button?**  
+Google Pay buttons **support styling options** such as:  
+✔ **Button type** (`buy`, `plain`, `donate`)  
+✔ **Color theme** (`black`, `white`)  
+✔ **Size** (`small`, `medium`, `large`)  
+
+📌 **Resources:**  
+👉 [Customize Your Google Pay Button](https://developers.google.com/pay/api/web/guides/brand-guidelines)  
+
+---
