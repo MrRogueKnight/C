@@ -1,18 +1,15 @@
-
----
-
 # **Google Pay API for Web 201: Advanced** 🚀  
 
 ## **1. Introduction**  
 
 ### **Welcome to Google Pay API for Web 201: Advanced!** 🎉  
 
-This codelab builds upon **Google Pay API for Web 101: Basics**, so make sure you've completed that first before proceeding.  
+Before proceeding, ensure you've completed **Google Pay API for Web 101: Basics**, as this guide builds upon its concepts.
 
 ### **📚 What You’ll Learn**  
 
 - **How to customize the Google Pay button** 🎨  
-- **How to start the payment process** 🛒  
+- **How to start the payment process** 🛍️  
 - **How to acknowledge payment authorization status** ✅  
 - **How to handle shipping address changes** 🏠  
 - **How to handle redemption codes** 🎟️  
@@ -27,7 +24,7 @@ This codelab builds upon **Google Pay API for Web 101: Basics**, so make sure yo
 
 ## **2. Button Customization**  
 
-The **Google Pay button** can be customized using various options. Below is a brief overview of **ButtonOptions**:  
+Customizing the **Google Pay button** enhances the user experience by aligning it with your brand and improving accessibility. Below is an overview of **ButtonOptions**:  
 
 | **Option**              | **Necessity** | **Values** |
 |-------------------------|--------------|------------|
@@ -58,11 +55,6 @@ function renderGooglePayButton() {
   document.getElementById(GPAY_BUTTON_CONTAINER_ID).appendChild(button);
 }
 ```
-
-### **📝 Code Explanation**  
-
-- `createButton()` generates a **Google Pay button** with customized properties like **color**, **type**, **radius**, and **locale**.  
-- The button **triggers** the payment process via `onClick: onGooglePaymentButtonClicked`.  
 
 ---
 
@@ -97,10 +89,10 @@ function onPaymentDataChanged(intermediatePaymentData) {
 
 ```javascript
 callbackIntents: [
-  'PAYMENT_AUTHORIZATION',
-  'SHIPPING_ADDRESS',
-  'SHIPPING_OPTION',
-  'OFFER',
+  'PAYMENT_AUTHORIZATION', // Ensures payment is valid
+  'SHIPPING_ADDRESS',      // Updates total cost dynamically
+  'SHIPPING_OPTION',       // Updates available shipping choices
+  'OFFER'                  // Applies promo codes in real time
 ],
 shippingAddressRequired: true,
 shippingOptionRequired: true,
@@ -114,17 +106,9 @@ shippingOptionParameters: {
 },
 ```
 
-### **📝 Code Explanation**  
-
-- `onPaymentAuthorized` is **required** and processes **payment authorization**.  
-- `onPaymentDataChanged` handles **shipping, discounts, and dynamic updates**.  
-- `callbackIntents` defines **which events** trigger the callbacks.  
-
 ---
 
 ## **4. Payment Authorization**  
-
-This function **simulates payment processing** and **handles authorization errors**.  
 
 ### **🛠 Replace `onPaymentAuthorized()` in `main.js` with:**  
 
@@ -150,17 +134,11 @@ function onPaymentAuthorized(paymentData) {
 }
 ```
 
-### **📝 Code Explanation**  
-
-- This function **logs payment data** for debugging.  
-- It **randomly simulates** a **70% success rate** for transaction approval.  
-- In case of failure, it returns an **error message** (e.g., "Insufficient funds").  
+**💡 Note:** In production, integrate with your backend payment processor to handle real transactions.  
 
 ---
 
 ## **5. Payment Data Change**  
-
-This function dynamically **updates prices, shipping options, and discounts** based on user input.  
 
 ### **🛠 Replace `onPaymentDataChanged()` in `main.js` with:**  
 
@@ -168,38 +146,29 @@ This function dynamically **updates prices, shipping options, and discounts** ba
 function onPaymentDataChanged(intermediatePaymentData) {
   return new Promise(function(resolve, reject) {
     let paymentDataRequestUpdate = {};
-
     console.log("onPaymentDataChanged", intermediatePaymentData);
 
     switch(intermediatePaymentData.callbackTrigger) {
       case "INITIALIZE":
-        // Handle initialization
+        // TODO: Handle initialization
         break;
       case "SHIPPING_ADDRESS":
-        // Update paymentDataRequestUpdate.newTransactionInfo
+        // TODO: Update shipping fees based on the selected address
         break;
       case "SHIPPING_OPTION":
-        // Update paymentDataRequestUpdate.newTransactionInfo
-        // Update paymentDataRequestUpdate.newShippingOptionParameters
+        // TODO: Update shipping cost dynamically
         break;
       case "OFFER":
-        // Update paymentDataRequestUpdate.newTransactionInfo
-        // Update paymentDataRequestUpdate.newOfferInfo
+        // TODO: Apply discount based on promo code
         break;
       default:
-        // Update paymentDataRequestUpdate.error
+        // TODO: Handle errors
     }
 
     resolve(paymentDataRequestUpdate);
   });
 }
 ```
-
-### **📝 Code Explanation**  
-
-- This function **listens** for changes in **shipping address, shipping options, and discounts**.  
-- It **updates transaction info** dynamically.  
-- The `INITIALIZE` callback ensures that changes **persist across multiple calls**.  
 
 ---
 
@@ -222,14 +191,10 @@ $ python3 -m http.server
 
 ---
 
-### **📌 Next Steps**  
+### **📉 Next Steps**  
+- **Test in Google Pay’s test environment before going live.**  
+- **Review security best practices for transactions.**  
+- **Explore advanced features like tokenization & gateways.**  
 
-✔ **Review the integration checklist**.  
-✔ **Explore advanced features** like tokenization & gateways.  
-✔ **Stay updated:**  
+🚀 Now deploy your integration and start accepting payments! 💳
 
-- Join **#payments** on Discord  
-- Follow **[@GooglePayDevs](https://twitter.com/GooglePayDevs)** on X  
-- Watch **Google Pay tutorials** on YouTube  
-
-🚀 **Now deploy your integration and start accepting payments!** 💳
