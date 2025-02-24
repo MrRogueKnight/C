@@ -388,3 +388,116 @@ Google Pay buttons **support styling options** such as:
 👉 [Customize Your Google Pay Button](https://developers.google.com/pay/api/web/guides/brand-guidelines)  
 
 ---
+
+## **6. Add Event Handlers**  
+
+In this step, we configure two event handlers for Google Pay integration:  
+
+1. **`onGooglePayLoaded()`** – Checks if Google Pay is available and renders the Google Pay button if applicable.  
+2. **`onGooglePaymentButtonClicked()`** – Handles the payment request when the Google Pay button is clicked, retrieves a payment token, and logs it for further processing.  
+
+---
+
+### **Code Implementation**  
+
+```javascript
+//=============================================================================
+// Event Handlers
+//=============================================================================
+
+/**
+ * Checks if Google Pay is available for the user.
+ * If available, renders the Google Pay button.
+ */
+function onGooglePayLoaded() {
+  const req = deepCopy(baseGooglePayRequest);
+
+  getGooglePaymentsClient()
+    .isReadyToPay(req)
+    .then((res) => {
+      if (res.result) {
+        renderGooglePayButton();
+      } else {
+        console.warn("Google Pay is not available for this user.");
+      }
+    })
+    .catch((error) => console.error("Google Pay availability check failed:", error));
+}
+
+/**
+ * Handles the Google Pay button click event.
+ * Initiates a payment request and retrieves a payment token.
+ */
+function onGooglePaymentButtonClicked() {
+  // Create a fresh request object for the current transaction
+  const req = {
+    ...deepCopy(baseGooglePayRequest),
+    transactionInfo: {
+      countryCode: "US",
+      currencyCode: "USD",
+      totalPriceStatus: "FINAL",
+      totalPrice: (Math.random() * 999 + 1).toFixed(2), // Random price for testing
+    },
+    // todo: callbackIntents (codelab gpay-web-201)
+  };
+
+  // Log the request object for debugging
+  console.log("Google Pay request object:", req);
+
+  getGooglePaymentsClient()
+    .loadPaymentData(req)
+    .then((res) => {
+      // Log the response object for debugging
+      console.log("Google Pay response object:", res);
+
+      // Extract and log the payment token
+      const paymentToken = res.paymentMethodData.tokenizationData.token;
+      console.log("Payment Token:", paymentToken);
+
+      // @todo Send the payment token to your backend/payment gateway for processing
+    })
+    .catch((error) => console.error("Google Pay transaction failed:", error));
+}
+```
+
+---
+
+## **Code Explanation**  
+
+### **1. `onGooglePayLoaded()` – Checking if Google Pay is Available**  
+- This function is triggered when the **pay.js** script finishes loading.  
+- Calls **`isReadyToPay(req)`** to check if the user has an eligible payment method linked to Google Pay.  
+- If **Google Pay is supported**, the **Google Pay button** is dynamically rendered.  
+- If **Google Pay is unavailable**, a warning is logged.  
+
+✅ **Best Practice:** Always handle API failures gracefully by logging errors.
+
+---
+
+### **2. `onGooglePaymentButtonClicked()` – Handling Payments**  
+- Creates a **new transaction request** for every payment attempt.  
+- Defines the **transactionInfo** object, including:  
+  - `countryCode`: The country where the transaction takes place.  
+  - `currencyCode`: The currency used for the transaction.  
+  - `totalPriceStatus`: Indicates whether the final price is confirmed.  
+  - `totalPrice`: Generates a **random** transaction amount for testing.  
+- Calls **`loadPaymentData(req)`**, which:  
+  - Opens the Google Pay interface for the user.  
+  - If successful, retrieves a **secure payment token**.  
+- The **payment token** must be sent to a backend service for processing.  
+
+🚨 **Security Note:**  
+- **Do not store payment tokens or credentials.** Always send them securely to a payment processor.  
+- Ensure your payment gateway supports **Google Pay tokenization**.  
+
+---
+
+## **Best Practices & Additional Resources**  
+
+📌 **Enhancing User Experience:**  
+- If `isReadyToPay()` returns `false`, provide users with alternative payment methods.  
+- Display error messages clearly if the transaction fails.  
+
+🔗 **Google Pay API References:**  
+- [Payment Request Objects](https://developers.google.com/pay/api/web/reference/request-objects) – Learn how to structure payment requests.  
+- [Secure Payment Processing](https://developers.google.com/pay/api/web/guides/paymentdata) – Best practices for handling payment tokens.  
