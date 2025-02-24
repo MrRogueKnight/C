@@ -500,4 +500,66 @@ function onGooglePaymentButtonClicked() {
 
 🔗 **Google Pay API References:**  
 - [Payment Request Objects](https://developers.google.com/pay/api/web/reference/request-objects) – Learn how to structure payment requests.  
-- [Secure Payment Processing](https://developers.google.com/pay/api/web/guides/paymentdata) – Best practices for handling payment tokens.  
+- [Secure Payment Processing](https://developers.google.com/pay/api/web/guides/paymentdata) – Best practices for handling payment tokens.
+
+## **7. Conclusion**  
+
+🎉 **Congratulations!** You have successfully integrated the **Google Pay API** into a website. This Codelab guided you through:  
+✅ Setting up Google Pay  
+✅ Creating a payment request  
+✅ Handling user interactions  
+✅ Processing the payment token  
+
+Now, it's time to **run and test your project**!  
+
+---
+
+### **Running the Project**  
+
+#### **Option 1: Test with Google Chrome**  
+1. Open **Google Chrome**.  
+2. Navigate to **File > Open File...** from the main menu.  
+3. Select **index.html** to launch the project.  
+4. **Chrome will execute `main.js` automatically.**  
+
+📌 **Note:** Some browsers may block JavaScript execution for local files. Use Chrome for the best results.
+
+---
+
+#### **Option 2: Test with a Local Web Server**  
+If you have **Python** installed, you can run a local server:  
+
+```sh
+# Navigate to the project folder
+cd /your/path/to/pay-web-101
+
+# Start a simple HTTP server (Python 3)
+python3 -m http.server
+```
+
+📌 This will start a web server at:  
+👉 **http://localhost:8000**  
+
+🚀 Open this URL in your browser to test the integration!
+
+---
+
+## **Where to Go from Here?**  
+
+Now that you've completed this basic integration, here are some **next steps** to enhance your Google Pay setup:  
+
+📌 **Explore More:**  
+- **[Google Pay for Web 201: Advanced](https://developers.google.com/pay/api/web/guides/tutorial)** – Learn advanced integration techniques.  
+- **[Customize the Google Pay Button](https://developers.google.com/pay/api/web/guides/brand-guidelines)** – Adjust the button style to match your UI.  
+- **[Integration Checklist](https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist)** – Ensure your implementation meets all requirements.  
+
+---
+
+## **Additional Resources**  
+
+💬 **Join the Community:**  
+- Discuss Google Pay integration in the **#payments channel** on **Discord**.  
+- Follow **[@GooglePayDevs](https://twitter.com/GooglePayDevs)** on X (Twitter) for updates.  
+- Watch **[Google Pay Tutorials](https://www.youtube.com/c/GoogleDevelopers)** on YouTube.  
+
+🎯 **You're now ready to build seamless payment experiences with Google Pay!** 🚀
