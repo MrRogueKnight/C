@@ -116,6 +116,69 @@ ai-chat-interface/
 ├── docker-compose.yml
 └── README.md
 ```
+## **Project Directory Structure**
+```
+ai-chat-interface/
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   │   ├── ai-config.js
+│   │   │   └── redis-config.js
+│   │   ├── handlers/
+│   │   │   ├── chatgpt-handler.js
+│   │   │   ├── deepseek-handler.js
+│   │   │   └── perplexity-handler.js
+│   │   ├── middleware/
+│   │   │   ├── rate-limiter.js
+│   │   │   ├── request-validator.js
+│   │   │   └── error-handler.js
+│   │   ├── routes/
+│   │   │   └── chat-routes.js
+│   │   ├── utils/
+│   │   │   ├── encryption.js
+│   │   │   └── logger.js
+│   │   ├── server.js
+│   │   └── app.js
+│   ├── scripts/
+│   │   └── start-redis.sh
+│   ├── tests/
+│   │   ├── unit/
+│   │   │   └── chat.test.js
+│   │   └── integration/
+│   │       └── api.test.js
+│   ├── .env
+│   ├── .env.example
+│   ├── Dockerfile
+│   ├── package.json
+│   └── README.md
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── manifest.json
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ChatWindow.js
+│   │   │   ├── ApiKeyManager.js
+│   │   │   └── Message.js
+│   │   ├── hooks/
+│   │   │   ├── useChat.js
+│   │   │   └── useApiKeys.js
+│   │   ├── utils/
+│   │   │   ├── api.js
+│   │   │   └── storage.js
+│   │   ├── App.js
+│   │   ├── App.css
+│   │   ├── index.js
+│   │   └── setupTests.js
+│   ├── .env
+│   ├── .env.example
+│   ├── package.json
+│   ├── README.md
+│   └── Dockerfile
+├── docker-compose.yml
+├── README.md
+└── .gitignore
+```
 
 ## 📜 License
 MIT License - See [LICENSE](LICENSE)
