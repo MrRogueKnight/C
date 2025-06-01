@@ -1,0 +1,1 @@
+This repository is a personal space for rough work, practice code, experimental snippets, and coding exercises. It includes everything from quick algorithm implementations and language feature tests to small-scale project experiments.
